@@ -1,14 +1,16 @@
 import json
-
 import requests
 
+# Base URL for the API
+base_url = "http://127.0.0.1:8000"
+
 # TODO: send a GET using the URL http://127.0.0.1:8000
-r = None # Your code here
+r = requests.get(base_url)
 
 # TODO: print the status code
-# print()
+print(f"GET Status Code: {r.status_code}")
 # TODO: print the welcome message
-# print()
+print(f"Welcome Message: {r.json()}")
 
 
 
@@ -30,9 +32,11 @@ data = {
 }
 
 # TODO: send a POST using the data above
-r = None # Your code here
+post_url = f"{base_url}/data/"
+r = requests.post(post_url, json=data)
 
 # TODO: print the status code
-# print()
+print(f"POST Status Code: {r.status_code}")
 # TODO: print the result
-# print()
+print(f"Prediction Result: {r.json()}")
+
